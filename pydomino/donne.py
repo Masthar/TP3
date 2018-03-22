@@ -2,7 +2,6 @@
 Module contenant la description de la classe Donne. Une donne contient une liste de dominos.
 """
 
-
 import pydomino
 
 
@@ -22,9 +21,9 @@ class Donne:
         :param Domino domino: domino à retirer de la donne
         :return: l'index du domino dans la donne
         """
-
-        # TODO: À compléter
-        pass
+        index_domino = self.dominos.index(domino)
+        self.dominos.remove(domino)
+        return index_domino
 
     def piger(self, domino, i=None):
         """
@@ -33,8 +32,10 @@ class Donne:
         :param int i: index où le domino doit être ajouter;
                       par défaut, on ajoute le domino à la fin
         """
-        # TODO: À compléter
-        pass
+        if i is None:
+            i = len(self.dominos)
+
+        self.dominos.insert(i, domino)
 
     def __getitem__(self, i):
         return self.dominos[i]
@@ -56,8 +57,11 @@ class Donne:
         Méthode qui retourne une chaîne de caractères qui représente la liste de dominos de la donne en une ligne.
         :return: str: liste des dominos de la donne
         """
-        # TODO: À compléter
-        pass
+
+        ligne_domino = ""
+        for domino in self.dominos:
+            ligne_domino += domino.__str__()
+        return ligne_domino
 
     def __repr__(self):
         return str(self)
