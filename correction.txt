@@ -1,0 +1,91 @@
+﻿
+Prénom et Nom : Samuel Dufresne
+Numéro de dossier (NI):
+ 111100741
+Prénom et Nom : 
+Samuel Nadeau-Vachon
+Numéro de dossier (NI): 111221586
+
+
+Fonctionnalités
+---------------
+
+/1 : Classe Domino
+      Commentaires :
+
+/1 : Classe Donne
+      Commentaires :
+
+/1 : Classe Plateau
+      Commentaires :
+
+/1 : Fonction distribuer_dominos
+      Commentaires :
+
+/0,5 : Méthode Partie.afficher_instructions
+      Commentaires :
+
+/0,5 : Méthode Partie.trouver_premier_joueur
+      Commentaires :
+
+/1 : Méthode Partie.tour_du_premier_joueur
+      Commentaires :
+
+/0,5 : Méthode Partie.determiner_si_joueur_joue_ou_passe
+      Commentaires :
+
+/0,5 : Méthode Partie.afficher_informations_debut_tour
+      Commentaires :
+
+
+/0,5 : Méthode Partie.demander_numero_domino_a_jouer
+      Commentaires :
+
+
+/1 : Méthode Partie.jouer_un_domino
+      Commentaires :
+
+
+/1 : Méthode Partie.tour_du_prochain_joueur
+      Commentaires :
+
+
+/0,5 : Méthode Partie.trouver_joueur_avec_moins_de_dominos
+      Commentaires :
+
+/0,5 : Méthode Partie.afficher_message_egalite
+      Commentaires :
+
+
+/0,5 : Méthode Partie.afficher_message_gagnant
+      Commentaires :
+
+
+/1 : Méthode Partie.jouer
+      Commentaires :
+
+/1 : Module __main__.py
+      Commentaires :
+
+/1 : Classe Pioche
+      Commentaires :
+
+/1 : Classe PartieAvecPioche
+      Commentaires :
+
+/2 : Qualité du code (noms de variables, style, commentaires, documentation)
+      Commentaires :
+
+
+
+Pénalités pour non-respect des consignes
+----------------------------------------
+
+
+
+Autres commentaires du correcteur
+---------------------------------
+
+
+
+Total: /17
