@@ -17,13 +17,12 @@ class Domino:
 
     def inverser(self):
         # Cette méthode retourne un objet domino où les chiffres ont été inversés.
-        # TODO: À compléter
-        pass
+
+        return Domino(self.deuxieme_chiffre, self.premier_chiffre)
 
     def __str__(self):
         # Cette méthode retourne une chaîne de caractère qui représente l'objet domino.
-        # TODO: À compléter
-        pass
+        return str([self.premier_chiffre, self.deuxieme_chiffre])
 
     def __repr__(self):
         return str(self)

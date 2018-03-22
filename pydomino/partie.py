@@ -1,5 +1,5 @@
 """
-Module contenant la description de la classe Partie. Cette contient toutes les méthodes pour jouer une partie de
+Module contenant la description de la classe Partie. Cette classe contient toutes les méthodes pour jouer une partie de
 domino sans pioche.
 """
 
