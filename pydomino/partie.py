@@ -16,9 +16,20 @@ def distribuer_dominos(nombre_joueurs):
     :param nombre_joueurs: (int) Nombre de joueurs de la partie.
     :return: (list) La liste des donnes de dominos des joueurs.
     """
-    # TODO: À compléter
 
-    pass
+    ensemble_dominos = []
+    ensemble_donnes = []
+    for i in range(6, -1, -1):
+        for j in range(6, -1, -1):
+            ensemble_dominos.append(pydomino.Domino(i, j))
+    random.shuffle(ensemble_dominos)
+    if nombre_joueurs == 2:
+        nombre_distribue = 7
+    else:
+        nombre_distribue = 6
+    for i in range(nombre_joueurs):
+        ensemble_donnes.append(pydomino.Donne(ensemble_dominos[i * nombre_distribue:(i + 1) * nombre_distribue]))
+    return ensemble_donnes
 
 
 class Partie:
@@ -244,3 +255,7 @@ class Partie:
 
         # TODO: À compléter
         pass
+
+
+if __name__ == '__main__':
+    distribuer_dominos(4)
