@@ -17,16 +17,14 @@ class Plateau:
         :return: La valeur extérieure du domino de gauche.
         """
 
-        # TODO À compléter
-        pass
+        return self.plateau[0][0]
 
     def cote_droit(self):
         """
         Méthode qui retourne la valeur numérique à droite du plateau
         :return: La valeur extérieure du domino de droite.
         """
-        # TODO À compléter
-        pass
+        return self.plateau[-1][-1]
 
     def ajouter_a_gauche(self, domino):
         """
@@ -35,8 +33,10 @@ class Plateau:
         :param domino: (Domino) Le domino à ajouter à gauche.
         """
 
-        # TODO À compléter
-        pass
+        if self.cote_gauche() == domino[0]:
+            self.plateau.insert(0, domino.inverser())
+        else:
+            self.plateau.insert(0, domino)
 
     def ajouter_a_droite(self, domino):
         """
@@ -45,8 +45,10 @@ class Plateau:
         :param domino: (Domino) Le domino à ajouter à droite.
         """
 
-        # TODO À compléter
-        pass
+        if self.cote_droit() == domino[0]:
+            self.plateau.append(domino)
+        else:
+            self.plateau.append(domino.inverser())
 
     def ajouter(self, domino, gauche):
         """
@@ -55,8 +57,10 @@ class Plateau:
         :param gauche: (bool) True si le domino doit être ajouté gauche, False autrement
         """
 
-        # TODO À compléter
-        pass
+        if gauche:
+            self.ajouter_a_gauche(domino)
+        else:
+            self.ajouter_a_droite(domino)
 
     def __eq__(self, other):
         if not isinstance(other, type(self)):
@@ -72,11 +76,13 @@ class Plateau:
 
     def __str__(self):
         """
-        Méthode qui retourne une chaîne de caractères qui représente la liste de dominos sur le plateay en une ligne.
+        Méthode qui retourne une chaîne de caractères qui représente la liste de dominos sur le plateau en une ligne.
         :return: str: liste des dominos du plateau
         """
-        # TODO: À compléter
-        pass
+
+        ligne_domino = ''
+        for domino in self.plateau:
+            ligne_domino += domino.__str__()
 
     def __repr__(self):
         return str(self)
