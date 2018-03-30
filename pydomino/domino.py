@@ -22,7 +22,7 @@ class Domino:
 
     def __str__(self):
         # Cette méthode retourne une chaîne de caractère qui représente l'objet domino.
-        return str([self.premier_chiffre, self.deuxieme_chiffre])
+        return "[{}|{}]".format(self.premier_chiffre, self.deuxieme_chiffre)
 
     def __repr__(self):
         return str(self)
