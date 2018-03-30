@@ -58,7 +58,7 @@ class Plateau:
         """
 
         if not self.plateau:    # Si le plateau est vide
-            self.plateau.append(domino)
+            self.plateau.insert(0, domino)
         else:
             if gauche:
                 self.ajouter_a_gauche(domino)
@@ -90,3 +90,9 @@ class Plateau:
 
     def __repr__(self):
         return str(self)
+
+
+if __name__ == '__main__':
+    tes = Plateau()
+    tes.ajouter(pydomino.Domino(6, 6), False)
+    print(tes)

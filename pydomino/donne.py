@@ -59,8 +59,8 @@ class Donne:
         """
 
         ligne_domino = ""
-        for domino in self.dominos:
-            ligne_domino += (' ' + domino.__str__())
+        for i in range(len(self.dominos)):
+            ligne_domino += "\n{}. {}".format(i + 1, self.dominos[i])
         return ligne_domino
 
     def __repr__(self):

@@ -5,7 +5,6 @@ domino sans pioche.
 
 import pydomino
 import random
-import os
 
 
 def distribuer_dominos(nombre_joueurs):
@@ -96,8 +95,8 @@ class Partie:
         """
 
         for i in range(len(self.donnes)):
-            print("\nJoueur " + str(i + 1))
-            print('Nombre de dominos: ' + str(len(self.donnes[i])))
+            print("\n\tJoueur " + str(i + 1))
+            print('\tNombre de dominos: ' + str(len(self.donnes[i])))
 
     def trouver_premier_joueur(self):
         """
@@ -119,9 +118,7 @@ class Partie:
         """
         Méthode qui modifie l'attribut self.tour pour passer au joueur suivant.
         """
-        if self.tour is None:
-            self.tour, dump = self.trouver_premier_joueur()
-        elif self.tour == len(self.donnes):
+        if self.tour == len(self.donnes) - 1:
             self.tour = 0
         else:
             self.tour += 1
@@ -137,8 +134,10 @@ class Partie:
         # Passer au joueur suivant (en utilisant la méthode appropriée)
 
         joueur, domino = self.trouver_premier_joueur()
-        print("Le joueur {} commence avec le domino {}.".format(joueur + 1, domino))
-        self.plateau.ajouter(self.donnes[joueur].jouer(domino), False)
+        self.tour = joueur
+        print("\nLe joueur {} commence avec le domino {}.".format(joueur + 1, domino))
+        self.plateau.ajouter(domino, False)
+        self.donnes[joueur].jouer(domino)
         self.passer_au_prochain_joueur()
 
     def determiner_si_domino_peut_etre_joue(self, domino):
@@ -170,7 +169,7 @@ class Partie:
         doit jouer.
         """
 
-        print("Tour du joueur {}".format(self.tour + 1))
+        print("\nTour du joueur {}".format(self.tour + 1))
         print("\n" + str(self.plateau))
         print("\n\nListe des joueurs:")
         self.afficher_etat_donnes()
@@ -182,8 +181,15 @@ class Partie:
         tant que le numéro fourni n'est pas valide.
         :return: (Domino) L'objet domino associé au numéro de domino choisi.
         """
-        # TODO: À compléter
-        pass
+
+        print("\nDonne du joueur {}:".format(self.tour + 1))
+        print(self.donnes[self.tour])
+        choix_domino = input("\nQuel domino shouaitez-vous jouer?")
+        while not (choix_domino.isnumeric() and int(choix_domino) in range(1, len(self.donnes[self.tour]) + 1)):
+            print("\nChoix non valide. Veuillez entrer un des indexes fournis.")
+            choix_domino = input("Quel domino shouaitez-vous jouer?")
+        choix_domino -= 1
+        return self.donnes[self.tour][choix_domino]
 
     def jouer_a_gauche_ou_a_droite(self, domino_joue):
         """
@@ -294,3 +300,4 @@ if __name__ == '__main__':
     test_partie = Partie.nouvelle_partie(2)
     test_partie.tour_du_premier_joueur()
     test_partie.afficher_informations_debut_tour()
+    test_partie.demander_numero_domino_a_jouer()
