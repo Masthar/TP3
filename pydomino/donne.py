@@ -59,13 +59,9 @@ class Donne:
         """
 
         ligne_domino = ""
-        for domino in self.dominos:
-            ligne_domino += (' ' + domino.__str__())
+        for i in range(len(self.dominos)):
+            ligne_domino += "\n{}. {}".format(i + 1, self.dominos[i])
         return ligne_domino
 
     def __repr__(self):
         return str(self)
-
-
-if __name__ == '__main__':
-    print(sorted(Donne([pydomino.Domino(6, 6), pydomino.Domino(6, 4), pydomino.Domino(4, 6), pydomino.Domino(5, 5)])))

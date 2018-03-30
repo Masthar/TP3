@@ -57,10 +57,13 @@ class Plateau:
         :param gauche: (bool) True si le domino doit être ajouté gauche, False autrement
         """
 
-        if gauche:
-            self.ajouter_a_gauche(domino)
+        if not self.plateau:    # Si le plateau est vide
+            self.plateau.insert(0, domino)
         else:
-            self.ajouter_a_droite(domino)
+            if gauche:
+                self.ajouter_a_gauche(domino)
+            else:
+                self.ajouter_a_droite(domino)
 
     def __eq__(self, other):
         if not isinstance(other, type(self)):
@@ -82,7 +85,14 @@ class Plateau:
 
         ligne_domino = ''
         for domino in self.plateau:
-            ligne_domino += domino.__str__()
+            ligne_domino += str(domino)
+        return ligne_domino
 
     def __repr__(self):
         return str(self)
+
+
+if __name__ == '__main__':
+    tes = Plateau()
+    tes.ajouter(pydomino.Domino(6, 6), False)
+    print(tes)
