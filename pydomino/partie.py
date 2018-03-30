@@ -5,6 +5,7 @@ domino sans pioche.
 
 import pydomino
 import random
+import os
 
 
 def distribuer_dominos(nombre_joueurs):
@@ -20,7 +21,7 @@ def distribuer_dominos(nombre_joueurs):
     ensemble_dominos = []
     ensemble_donnes = []
     for i in range(6, -1, -1):
-        for j in range(6, -1, -1):
+        for j in range(i, -1, -1):
             ensemble_dominos.append(pydomino.Domino(i, j))
     random.shuffle(ensemble_dominos)
     if nombre_joueurs == 2:
@@ -106,27 +107,39 @@ class Partie:
             int: le numéro du joueur ayant le domino le plus élevé
             domino: le domino le plus élevé de ce joueur
         """
-        # TODO: À compléter
-        pass
+        num_joueur = 0
+        domino_max = pydomino.Domino(0, 0)
+        for i in range(len(self.donnes)):
+            if max(self.donnes[i]) > domino_max:
+                num_joueur = i
+                domino_max = max(self.donnes[i])
+        return num_joueur, domino_max
 
     def passer_au_prochain_joueur(self):
         """
         Méthode qui modifie l'attribut self.tour pour passer au joueur suivant.
         """
-        # TODO: À compléter
-        pass
+        if self.tour is None:
+            self.tour, dump = self.trouver_premier_joueur()
+        elif self.tour == len(self.donnes):
+            self.tour = 0
+        else:
+            self.tour += 1
 
     def tour_du_premier_joueur(self):
         """
         Méthode qui complète les étapes du tour du premier joueur.
         """
-        # TODO: À compléter
         # Trouver le joueur avec le domino le plus élevé.
         # Afficher les informations sur le mouvement du premier joueur
         # Placer ce domino sur le plateau de jeu (en utilisant la méthode appropriée)
         # Retirer ce domino de la donne du joueur (en utilisant la méthode appropriée)
         # Passer au joueur suivant (en utilisant la méthode appropriée)
-        pass
+
+        joueur, domino = self.trouver_premier_joueur()
+        print("Le joueur {} commence avec le domino {}.".format(joueur + 1, domino))
+        self.plateau.ajouter(self.donnes[joueur].jouer(domino), False)
+        self.passer_au_prochain_joueur()
 
     def determiner_si_domino_peut_etre_joue(self, domino):
         """
@@ -134,8 +147,9 @@ class Partie:
         :param domino: (Domino) Domino dont on veut savoir s'il peut être posé à une des deux extrémités du plateau
         :return: (bool) True, si le domino peut être joué, False autrement.
         """
-        # TODO: À compléter
-        pass
+
+        return self.plateau.cote_droit() or self.plateau.cote_gauche() == \
+            domino.premier_chiffre or domino.deuxieme_chiffre
 
     def determiner_si_joueur_joue_ou_passe(self):
         """
@@ -143,9 +157,11 @@ class Partie:
         :return: (bool) True, si au moins un domino de la donne du joueur courant peut être joué sur le plateau. False,
         autrement.
         """
-        # Dans la donne du joueur, y a-t-il un domino que le joueur peut joueur?
-        # TODO: À compléter
-        pass
+
+        for domino in self.donnes[self.tour]:
+            if self.determiner_si_domino_peut_etre_joue(domino):
+                return True
+        return False
 
     def afficher_informations_debut_tour(self):
         """
@@ -153,8 +169,11 @@ class Partie:
         du plateau de jeu, l'état des donnes de tous les joueurs (nombre de dominos en main) et la donne du joueur qui
         doit jouer.
         """
-        # TODO: À compléter
-        pass
+
+        print("Tour du joueur {}".format(self.tour + 1))
+        print("\n" + str(self.plateau))
+        print("\n\nListe des joueurs:")
+        self.afficher_etat_donnes()
 
     def demander_numero_domino_a_jouer(self):
         """
@@ -272,4 +291,6 @@ class Partie:
 
 
 if __name__ == '__main__':
-    Partie.nouvelle_partie(2).afficher_etat_donnes()
+    test_partie = Partie.nouvelle_partie(2)
+    test_partie.tour_du_premier_joueur()
+    test_partie.afficher_informations_debut_tour()

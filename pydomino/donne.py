@@ -65,7 +65,3 @@ class Donne:
 
     def __repr__(self):
         return str(self)
-
-
-if __name__ == '__main__':
-    print(sorted(Donne([pydomino.Domino(6, 6), pydomino.Domino(6, 4), pydomino.Domino(4, 6), pydomino.Domino(5, 5)])))

@@ -27,6 +27,9 @@ class Domino:
     def __repr__(self):
         return str(self)
 
+    def somme_chiffres(self):
+        return self.premier_chiffre + self.deuxieme_chiffre
+
     def __eq__(self, other):
         """
         Cette méthode spécifie le test d'équivalence entre deux objets de la classe domino.
@@ -37,6 +40,14 @@ class Domino:
         else:
             return sorted((self.premier_chiffre, self.deuxieme_chiffre)) == \
                    sorted((other.premier_chiffre, other.deuxieme_chiffre))
+
+    def __gt__(self, other):
+        if not isinstance(other, type(self)):
+            return False
+        if self.somme_chiffres() == other.somme_chiffres():
+            return self.premier_chiffre > other.premier_chiffre
+        else:
+            return self.somme_chiffres() > other.somme_chiffres()
 
     def __hash__(self):
         """
