@@ -16,8 +16,10 @@ class Domino:
         self.deuxieme_chiffre = deuxieme_chiffre
 
     def inverser(self):
-        # Cette méthode retourne un objet domino où les chiffres ont été inversés.
-
+        """
+        Cette méthode renvoie un domino où les chiffres ont été inversés.
+        :return (domino): domino inversé
+        """
         return Domino(self.deuxieme_chiffre, self.premier_chiffre)
 
     def __str__(self):
@@ -26,9 +28,6 @@ class Domino:
 
     def __repr__(self):
         return str(self)
-
-    def somme_chiffres(self):
-        return self.premier_chiffre + self.deuxieme_chiffre
 
     def __eq__(self, other):
         """
@@ -42,6 +41,12 @@ class Domino:
                    sorted((other.premier_chiffre, other.deuxieme_chiffre))
 
     def __gt__(self, other):
+        """
+        Cette méthode spécifie le test de comparaison '>' pour des dominos en se basant sur la somme de leurs chiffre.
+        Si la somme est égale, on prend le premier chiffre comme point de comparaison.
+        :param other (domino): domino à comparer
+        :return (bool): True si le domino est considéré plus grand que 'other'
+        """
         if not isinstance(other, type(self)):
             return False
         if self.somme_chiffres() == other.somme_chiffres():
@@ -63,3 +68,17 @@ class Domino:
         :return (bool): True si le chiffre key est présent dans les attributs du domino, False autrement
         """
         return key == self.premier_chiffre or key == self.deuxieme_chiffre
+
+    def somme_chiffres(self):
+        """
+        Cette méthode fait la somme des deux valeurs d'un domino
+        :return (int): Somme des deux chiffre du domino
+        """
+        return self.premier_chiffre + self.deuxieme_chiffre
+
+    def lister_valeurs(self):
+        """
+        Cette méthode met les deux chiffres du domino dans une liste.
+        :return (list): Lliste contenant les deux chiffres du domino
+        """
+        return [self.premier_chiffre, self.deuxieme_chiffre]
