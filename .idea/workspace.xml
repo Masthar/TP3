@@ -14,8 +14,8 @@
       <file leaf-file-name="Test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Exercices/Test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+            <state relative-caret-position="363">
+              <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -31,7 +31,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="domino.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="domino.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pydomino/domino.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1127">
@@ -51,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="partie.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="partie.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pydomino/partie.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="962">
-              <caret line="271" column="73" lean-forward="true" selection-start-line="271" selection-start-column="73" selection-end-line="271" selection-end-column="73" />
+            <state relative-caret-position="1094">
+              <caret line="313" column="48" lean-forward="true" selection-start-line="313" selection-start-column="48" selection-end-line="313" selection-end-column="48" />
               <folding>
                 <element signature="e#149#164#0" expanded="true" />
               </folding>
@@ -66,7 +66,7 @@
       <file leaf-file-name="partie_avec_pioche.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pydomino/partie_avec_pioche.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="-1150">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -440,17 +440,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pydomino/domino.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1127">
+          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="83" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../Exercices/Test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        <state relative-caret-position="363">
+          <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pydomino/partie_avec_pioche.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-1150">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -458,19 +466,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pydomino/partie.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="962">
-          <caret line="271" column="73" lean-forward="true" selection-start-line="271" selection-start-column="73" selection-end-line="271" selection-end-column="73" />
+        <state relative-caret-position="1094">
+          <caret line="313" column="48" lean-forward="true" selection-start-line="313" selection-start-column="48" selection-end-line="313" selection-end-column="48" />
           <folding>
             <element signature="e#149#164#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pydomino/domino.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1127">
-          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="83" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>

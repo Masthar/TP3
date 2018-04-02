@@ -93,7 +93,7 @@ class Partie:
         Méthode qui affiche l'état des donnes des joueurs de la partie.
         L'information affichée doit contenir le numéro du joueur et le nombre de dominos de sa donne.
         """
-
+        print("\nListe des joueurs:")
         for i in range(len(self.donnes)):
             print("\n\tJoueur " + str(i + 1))
             print('\tNombre de dominos: ' + str(len(self.donnes[i])))
@@ -147,8 +147,8 @@ class Partie:
         :return: (bool) True, si le domino peut être joué, False autrement.
         """
 
-        return self.plateau.cote_droit() or self.plateau.cote_gauche() == \
-            domino.premier_chiffre or domino.deuxieme_chiffre
+        return self.plateau.cote_droit() in domino.lister_valeurs() or\
+            self.plateau.cote_gauche() in domino.lister_valeurs()
 
     def determiner_si_joueur_joue_ou_passe(self):
         """
@@ -170,9 +170,8 @@ class Partie:
         """
 
         print("\nTour du joueur {}".format(self.tour + 1))
-        print("\n" + str(self.plateau))
-        print("\n\nListe des joueurs:")
         self.afficher_etat_donnes()
+        print("\nPlateau: {}".format(self.plateau))
 
     def demander_numero_domino_a_jouer(self):
         """
@@ -181,7 +180,6 @@ class Partie:
         tant que le numéro fourni n'est pas valide.
         :return: (Domino) L'objet domino associé au numéro de domino choisi.
         """
-
         print("\nDonne du joueur {}:".format(self.tour + 1))
         print(self.donnes[self.tour])
         choix_domino = input("\nQuel domino shouaitez-vous jouer?")
@@ -242,6 +240,7 @@ class Partie:
         while self.plateau.cote_gauche() not in domino_joue.lister_valeurs() and\
                 self.plateau.cote_droit() not in domino_joue.lister_valeurs():
             print("\nCe domino ne peut pas être joué pour l'instant.")
+            print("\nPlateau: {}".format(self.plateau))
             domino_joue = self.demander_numero_domino_a_jouer()
 
         # Deux côtés possibles
@@ -272,12 +271,12 @@ class Partie:
                     self.plateau.cote_droit() in domino.lister_valeurs():
                 peut_jouer = True
                 break
-            if peut_jouer:
-                self.passe = 0
-                self.jouer_un_domino()
-                self.verifier_gagnant()
-            else:
-                self.faire_passer_joueur()
+        if peut_jouer:
+            self.passe = 0
+            self.jouer_un_domino()
+            self.verifier_gagnant()
+        else:
+            self.faire_passer_joueur()
         self.passer_au_prochain_joueur()
 
     def faire_passer_joueur(self):
@@ -314,8 +313,8 @@ class Partie:
 
     def afficher_message_egalite(self, indices):
         """
-        Méthode qui affiche un message en cas d'égalité en fin de partie. Ce message doit indiquer quels sont les joueurs
-        qui ont le moins de dominos dans leur donne.
+        Méthode qui affiche un message en cas d'égalité en fin de partie. Ce message doit indiquer quels sont les
+        joueurs qui ont le moins de dominos dans leur donne.
         :param indices: (list) Liste qui contient les numéros des joueurs ayant le moins de dominos dans leur donne.
         """
         print('\nNous avons une égalité. Les gagnants sont les joueurs', end=' ')
