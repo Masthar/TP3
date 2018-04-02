@@ -61,7 +61,7 @@ class Partie:
 
         plateau = pydomino.Plateau()
         donnes = distribuer_dominos(nombre_joueurs)
-        partie = pydomino.Partie(plateau, donnes)
+        partie = cls(plateau, donnes)
         return partie
 
     @staticmethod
@@ -70,7 +70,7 @@ class Partie:
         Méthode statique qui affiche les instructions du jeu
         """
 
-        print("\nInstructions:\n\n\
+        print("\nPartie sans pioche:\n\n\
         Le jeu peut être joué par 2, 3 ou 4 joueurs. À partir d’un ensemble de 28 dominos ”doublesix”,\n\
         chaque joueur a une donne de dominos constituée au hasard (son jeu). Pour une\n\
         partie à 2 joueurs, chaque joueur reçoit 7 dominos. Pour une partie à 3 ou 4 joueurs, chaque\n\
@@ -146,7 +146,6 @@ class Partie:
         :param domino: (Domino) Domino dont on veut savoir s'il peut être posé à une des deux extrémités du plateau
         :return: (bool) True, si le domino peut être joué, False autrement.
         """
-
         return self.plateau.cote_droit() in domino.lister_valeurs() or\
             self.plateau.cote_gauche() in domino.lister_valeurs()
 
@@ -328,7 +327,7 @@ class Partie:
         """
         Méthode qui affiche le message de victoire. Il informe l'usager de l'identité du joueur gagnant.
         """
-        print('\nLe gagnant est le joueur {}!'.format(self.gagnant))
+        print("\nLe joueur {} n'a plus de domino. Il gagne donc la partie!".format(self.gagnant))
 
     def jouer(self):
         """
@@ -349,8 +348,3 @@ class Partie:
             self.afficher_message_victoire()
         else:
             self.afficher_message_egalite(self.gagnant)
-
-
-if __name__ == '__main__':
-    test_partie = Partie.nouvelle_partie(2)
-    test_partie.jouer()

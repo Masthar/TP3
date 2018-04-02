@@ -34,7 +34,6 @@ class Donne:
         """
         if i is None:
             i = len(self.dominos)
-
         self.dominos.insert(i, domino)
 
     def __getitem__(self, i):

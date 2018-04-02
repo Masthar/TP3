@@ -9,11 +9,13 @@ class Pioche(pydomino.Donne):
         Aucun attribut spécifique autre que ceux de la classe Donne.
     """
 
+    # def __init__(self, dominos):
+    #     super().__init__(dominos)
+
     def prendre_dans_la_pioche(self):
         """
         Méthode pour prendre un domino dans la pioche.
         :return:
             (domino): le domino pris dans la pioche
         """
-        # TODO À compléter
-        pass
+        return self.dominos.pop(randint(0, len(self.dominos) - 1))

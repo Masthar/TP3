@@ -19,6 +19,16 @@ if __name__ == '__main__':
     # choix du nombre de joueurs
     # instanciation d'un objet partie
     # démarrage de la partie
-
-
+    choix_partie = input("À quel type de partie souhaitez vous jouer?\n1. Sans pioche\n2. Avec pioche\n")
+    while choix_partie not in ['1', '2']:
+        choix_partie = input("\nChoix non valide. Veuillez choisir dans les indexes fournis.\n")
+    nombre_joueurs = input('\nShouaitez-vous jouer à 2, 3 ou 4 joueurs?\n')
+    while nombre_joueurs not in ['2', '3', '4']:
+        nombre_joueurs = input("Choix non valide. Veuillez-entrer le nombre de joueurs avec lequel vous voulez jouer.\n")
+    nombre_joueurs = int(nombre_joueurs)
+    if choix_partie == '1':
+        partie = Partie.nouvelle_partie(nombre_joueurs)
+    else:
+        partie = PartieAvecPioche.nouvelle_partie(nombre_joueurs)
+    partie.jouer()
     input('Appuyer sur ENTER pour quitter.')
