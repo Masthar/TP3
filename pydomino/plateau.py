@@ -17,14 +17,14 @@ class Plateau:
         :return: La valeur extérieure du domino de gauche.
         """
 
-        return self.plateau[0][0]
+        return self.plateau[0].premier_chiffre
 
     def cote_droit(self):
         """
         Méthode qui retourne la valeur numérique à droite du plateau
         :return: La valeur extérieure du domino de droite.
         """
-        return self.plateau[-1][-1]
+        return self.plateau[-1].deuxieme_chiffre
 
     def ajouter_a_gauche(self, domino):
         """
@@ -32,8 +32,7 @@ class Plateau:
         que les chiffres qui se touchent soient identiques.
         :param domino: (Domino) Le domino à ajouter à gauche.
         """
-
-        if self.cote_gauche() == domino[0]:
+        if self.cote_gauche() == domino.premier_chiffre:
             self.plateau.insert(0, domino.inverser())
         else:
             self.plateau.insert(0, domino)
@@ -45,7 +44,7 @@ class Plateau:
         :param domino: (Domino) Le domino à ajouter à droite.
         """
 
-        if self.cote_droit() == domino[0]:
+        if self.cote_droit() == domino.premier_chiffre:
             self.plateau.append(domino)
         else:
             self.plateau.append(domino.inverser())
@@ -53,7 +52,7 @@ class Plateau:
     def ajouter(self, domino, gauche):
         """
         Méthode qui ajoute le domino reçu en argument à gauche ou à droite du plateau.
-        :param domino: (Domino) Le domino à ajouter à droite.
+        :param domino: (Domino) Le domino à ajouter.
         :param gauche: (bool) True si le domino doit être ajouté gauche, False autrement
         """
 
