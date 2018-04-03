@@ -1,9 +1,7 @@
-import pydomino
-
-
 class Plateau:
     """
-        Documentation de la classe Plateau
+        Objet dans lequel seront placés les dominos joués. Chaque extrémité du plateau déterminera si un domino peut
+        être joué ou non.
         Attributs:
             plateau (list): Liste de dominos contenant les dominos qui ont été joués.
         """

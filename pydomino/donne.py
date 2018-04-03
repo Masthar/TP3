@@ -2,12 +2,10 @@
 Module contenant la description de la classe Donne. Une donne contient une liste de dominos.
 """
 
-import pydomino
-
 
 class Donne:
     """
-    Documentation de la classe Donne
+    Ensemble de domino. Sera entre autre utilisé pour représenter un joueur et sa main.
     Attributs:
         dominos (list): Liste de dominos contenant la donne d'un joueur
     """

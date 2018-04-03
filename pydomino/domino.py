@@ -5,7 +5,8 @@ Module contenant la description de la classe Domino. Un domino contient deux chi
 
 class Domino:
     """
-    Documentation de la classe Domino
+    Dominos qui seront joués. Chaque domino a deux chiffres, et chaque assortiment de chiffres est unique.
+    Par exemple, on ne peut pas avoir le domino [6|6] dans deux donnes.
     Attributs:
         premier_chiffre (int): Premier chiffre du domino (entier entre 0 et 6)
         deuxiement_chiffre (int): Deuxieme chiffre du domino (entier entre 0 et 6)
@@ -23,7 +24,10 @@ class Domino:
         return Domino(self.deuxieme_chiffre, self.premier_chiffre)
 
     def __str__(self):
-        # Cette méthode retourne une chaîne de caractère qui représente l'objet domino.
+        """
+        Cette méthode retourne une chaîne de caractère qui représente l'objet domino.
+        :return: (str): le string formatté représentant le domino.
+        """
         return "[{}|{}]".format(self.premier_chiffre, self.deuxieme_chiffre)
 
     def __repr__(self):

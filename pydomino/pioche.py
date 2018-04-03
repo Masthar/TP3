@@ -4,13 +4,12 @@ from random import randint
 
 class Pioche(pydomino.Donne):
     """
-    Documentation de la classe Pioche. Cette classe hérite de la classe Donne
+    Type de donne.
+    Il s'agiera du reste des dominos qui n'auront pas été distribués aux joueurs. Si un joueur ne peut
+    pas jouer, il devra piocher dans la pioche jusqu'à ce qu'il puisse.
     Attributs:
         Aucun attribut spécifique autre que ceux de la classe Donne.
     """
-
-    # def __init__(self, dominos):
-    #     super().__init__(dominos)
 
     def prendre_dans_la_pioche(self):
         """

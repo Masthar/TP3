@@ -1,3 +1,9 @@
+"""
+Module contenant la description de la classe PartieAvecPioche. Cette classe contient toutes les méthodes pour jouer
+une partie de domino avec pioche.
+Hérite de la classe Partie.
+"""
+
 import pydomino
 import random
 

@@ -125,14 +125,9 @@ class Partie:
 
     def tour_du_premier_joueur(self):
         """
-        Méthode qui complète les étapes du tour du premier joueur.
+        Méthode qui complète les étapes du tour du premier joueur. Trouve le joueur ayant le domino le plus élevé,
+        joue ce domino sur le plateau et annonce ce mouvement.
         """
-        # Trouver le joueur avec le domino le plus élevé.
-        # Afficher les informations sur le mouvement du premier joueur
-        # Placer ce domino sur le plateau de jeu (en utilisant la méthode appropriée)
-        # Retirer ce domino de la donne du joueur (en utilisant la méthode appropriée)
-        # Passer au joueur suivant (en utilisant la méthode appropriée)
-
         joueur, domino = self.trouver_premier_joueur()
         self.tour = joueur
         print("\nLe joueur {} commence avec le domino {}.".format(joueur + 1, domino))
@@ -209,9 +204,6 @@ class Partie:
         Méthode invoquée pour joueur un domino à gauche du plateau.
         :param domino_joue: (Domino) Le domino à jouer à gauche du plateau.
         """
-        # Afficher l'information sur le mouvement du joueur.
-        # Ajouter le domino sur le plateau.
-        # Retirer le domino de la donne du joueur.
         print("\nLe joueur {} joue le domino {} à gauche du plateau.".format(self.tour + 1, domino_joue))
         self.plateau.ajouter(domino_joue, True)
         self.donnes[self.tour].jouer(domino_joue)
@@ -221,9 +213,6 @@ class Partie:
         Méthode invoquée pour joueur un domino à droite du plateau.
         :param domino_joue: (Domino) Le domino à jouer à droite du plateau.
         """
-        # Afficher l'information sur le mouvement du joueur.
-        # Ajouter le domino sur le plateau.
-        # Retirer le domino de la donne du joueur.
         print("\nLe joueur {} joue le domino {} à droite du plateau.".format(self.tour + 1, domino_joue))
         self.plateau.ajouter(domino_joue, False)
         self.donnes[self.tour].jouer(domino_joue)
